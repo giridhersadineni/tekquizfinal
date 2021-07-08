@@ -1,0 +1,65 @@
+<div class="blue grey darken-1" style="height:fit-content;border-style: solid;
+border-width: 5px 5px;border-color:cyan;margin: 50px auto;padding: 50px;width: 1000px;">
+
+<h1>Quiz Title </h1>
+<div class="row">
+    
+    <div class="col">
+        <h5>Time Remaining {{ time / 60   | number:"1.0-0" }} Mins {{ time % 60 }} Secs</h5>
+    </div>
+    <div class="col">
+        <h5>
+           Answered: {{ this.currentQuestionIndex + 1 }}/  {{this.questions.length}} Total Questions
+        </h5>
+    </div>
+
+</div>
+<button class="btn btn-sucsess" (click)="startQuiz()" *ngIf="quizStarted"> Start Quiz</button>
+
+<div class="col s12 m7 " [ngClass]="{'hide' : quizloaded==false }">
+    <div class="card horizontal">
+        <div class="card-image">
+        </div>
+        <div class="card-stacked">
+            <div class="card-content">
+                <h3>{{ question["Qn"] }} </h3>
+                <div *ngIf="hasImage">
+                    <img  src="{{question.ImageName}}" alt="Image">
+                </div>
+                <p><button (click)="changeanswer(1)" class="btn w100 p2" >1.{{this.question.Option1}}</button></p>
+                <p><button (click)="changeanswer(2)" class="btn w100 p2" >2.{{this.question.Option2}}</button></p>
+                <p><button (click)="changeanswer(3)" class="btn w100 p2" >3.{{this.question.Option3}}</button></p>
+                <p><button (click)="changeanswer(4)" class="btn w100 p2" >4.{{this.question.Option4}}</button></p>
+               
+            </div>
+
+
+        </div>
+        
+        </div>
+     
+
+
+<div style="text-align:center">
+    <p class="center">
+    <button >Selected Answer <span *ngIf="isAnswered">{{this.selectedAnswer}}</span></button>
+    </p>
+    <button (click)="clearAnswer()"  class="btn red">Clear Answer</button>
+    &nbsp;
+    <button (click)="nextQuestion()" class="btn green"> Next Question</button>
+    &nbsp;
+    <button (click)="endQuiz()" class="btn purple"> Save and Submit</button>
+</div>
+<p></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+

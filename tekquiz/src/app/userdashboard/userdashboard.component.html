@@ -1,0 +1,15 @@
+<app-navbar></app-navbar>
+<div class="blue grey darken-1" style="height:500px;border-style: solid;
+border-width: 5px 5px;border-color:cyan;margin: 50px auto;padding: 50px;width: 1000px;">
+
+<div class="row m2">
+
+    <div *ngFor="let quiz of quizzes" class="card col s6 p2">
+        <h2 class="card-title">{{quiz.Name}}</h2>
+        <a routerLink="/quiz/{{quiz.Id}}" class="btn btn-success">Take Quiz</a>
+    </div>
+</div>
+
+
+
+<router-outlet></router-outlet>

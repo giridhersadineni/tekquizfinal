@@ -1,0 +1,44 @@
+<app-adminnavbar></app-adminnavbar>
+<div class="blue grey darken-1" style="height:500px;border-style: solid;
+border-width: 5px 5px;border-color:cyan;margin: 50px auto;padding: 50px;width: 1000px;">
+
+<div class="container" style="padding: 0.5em;">
+    
+    <p>
+        <a routerLink="/admin/addquiz" class="btn cyan">Create Quiz</a>
+    </p>
+    <div class="w-100">
+    
+      
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Manage</th>
+                <th>Quiz Id</th>
+                <th>Title</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngIf="isLoading">
+                <td colspan="8" >
+                    <span class="center-align">
+                        <mat-spinner></mat-spinner><br> 
+                        Loading Quizzes ...
+                    </span>
+                </td>
+            </tr>
+           
+
+            <tr *ngFor="let quiz of quizzes">
+                <td><a routerLink="/viewquiz/{{quiz.Id}}" class="btn btn-success">Manage</a></td>
+                <th>{{quiz.Id}}</th>
+                <th>{{quiz.Name}}</th>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<router-outlet></router-outlet>

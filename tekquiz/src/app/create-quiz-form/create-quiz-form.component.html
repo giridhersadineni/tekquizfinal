@@ -1,0 +1,78 @@
+<app-adminnavbar></app-adminnavbar>
+<div class="container">
+    <h2>Create a New Quiz</h2>
+    <form *ngIf="!loader" #quizForm>
+        <div class="input-field">
+            <input #Name type="text" name="Name" id="" class="input-field" placeholder="Quiz Title"
+                [(ngModel)]="formData['Name']">
+            <label for="">Quiz Title</label>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Select Topic</label>
+
+            <div class="input-field col s12" style="border-bottom: 2px solid #ccc;">
+                <select class="browser-default" #TopicId [(ngModel)]="formData['TopicId']" name="TopicId" >
+                    <option *ngFor="let c of topics" [value]="c.Id">{{c.TopicName}}</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- HERE -->
+
+        <div style="border:2px solid #ccc">
+
+            <p>Questions : <input type="number" min="0" [(ngModel)]="NoOfQuestions" (change)="changeOfCount()" name="NoOfQuestions" placeholder="Question Count" style="width: 200px;"></p> 
+            <div style="padding: 1rem;">
+                <div style="padding:1rem" *ngFor="let countOfQuestions of counter(NoOfQuestions); let i = index">
+                    <b><i>QUESTION {{i+1}}</i></b>
+                    <div class="input-field">
+                        <input type="text" name="Qn" id="" class="form-control" placeholder="Enter Question" [(ngModel)]="formData['Questions'][i]['Qn']">
+                        <label for="question">Enter Question</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="text" name="Option1" id="" class="form-control" placeholder="Enter Option" [(ngModel)]="formData['Questions'][i]['Option1']">
+                        <label for="question">Enter Option1</label>
+                    </div>
+                    
+                    <div class="input-field">
+                        <input type="text" name="Option2" id="" class="form-control" placeholder="Enter Option" [(ngModel)]="formData['Questions'][i]['Option2']">
+                        <label for="question">Enter Option2</label>
+                    </div>
+                    
+                    <div class="input-field">
+                        <input type="text" name="Option3" id="" class="form-control" placeholder="Enter Option" [(ngModel)]="formData['Questions'][i]['Option3']">
+                        <label for="question">Enter Option3</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="question">Enter Option4</label>
+                        <input type="text" name="Option4" id="" class="form-control" placeholder="Enter Option" [(ngModel)]="formData['Questions'][i]['Option4']">
+                    </div>
+                    
+                    <div class="input-field col s12">
+                        <select class="browser-default" namne="Answer" [(ngModel)]="formData['Questions'][i]['Answer']">
+                      
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="question">URL of the Image</label>
+                        <input type="url" name="ImageName" id="" class="form-control" placeholder="Image URL" [(ngModel)]="formData['Questions'][i]['ImageName']">
+                    </div>
+                    
+                    <hr>
+                </div>
+             
+            </div>
+        </div>
+
+
+
+
+        <button (click)="createQuiz(quizForm)">Create</button>
+    </form>
+</div>

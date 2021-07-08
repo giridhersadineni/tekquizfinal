@@ -1,0 +1,52 @@
+<app-adminnavbar></app-adminnavbar>
+<div class="blue grey darken-1" style="height:500px;border-style: solid;
+border-width: 5px 5px;border-color:cyan;margin: 50px auto;padding: 50px;width: 1000px;">
+
+<div class="container" style="padding: 0.5em;">
+    
+    <p>
+        <a routerLink="/admin/addquestion" class="btn btn-success">Add Questions</a>
+    </p>
+    <div class="w-100">
+    
+      
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Manage</th>
+                <th>Question Id</th>
+                <th>Question Text</th>
+                <th>Option1</th>
+                <th>Option2</th>
+                <th>Option3</th>
+                <th>Option4</th>
+                <th>Answer</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngIf="isLoading">
+                <td colspan="8" >
+                    <span class="center-align">
+                        <mat-spinner></mat-spinner><br> Loading Questions....
+                    </span>
+                </td>
+            </tr>
+           
+
+            <tr *ngFor="let question of questions">
+                <td><a routerLink="/viewquestion/{{question.QnID}}" class="btn btn-success ">Manage</a></td>
+                <td>{{question.QnID}}</td>
+                <td>{{question.Qn}}</td>
+                <td>{{question.Option1}}</td>
+                <td>{{question.Option2}}</td>
+                <td>{{question.Option3}}</td>
+                <td>{{question.Option4}}</td>
+                <td>{{question.Answer}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,51 @@
+<div class="row" style="float:right">
+    <div class="col">
+        <button class="green btn" (click)="answerQuestion()">Save Answer</button>
+    </div>
+    <div class="col">
+        <button class="btn purple" (click)="nextQuestion()">Next Question</button>
+    </div>
+</div>
+<div class="col s12 m7">
+    <div class="card horizontal">
+        <div class="card-image">
+        </div>
+        <div class="card-stacked">
+            <div class="card-content">
+                <p class="small white" *ngIf="isAnswered()"> <span class="badge ">
+                        Answered
+                    </span>
+                </p>
+
+                <h3>{{question.Qn}}</h3>
+                
+                <img *ngIf="hasImage()" src="{{question.ImageName}}" alt="Image">
+                <label for="question{{question.QnID}}option1">
+                    <input class="with-gap" [(ngModel)]="answerSelected" type="radio" name="Qn{{question.QnID}}"
+                        value="1" id="question{{question.QnID}}option1" />
+                    <span>{{question.Option1}}</span> <br>
+                    
+                </label>
+                <label for="question{{question.QnID}}option2}}">
+                    <input class="with-gap" [(ngModel)]="answerSelected" type="radio" name="Qn{{question.QnID}}"
+                        value="2" id="question{{question.QnID}}option2" />
+                    <span>{{question.Option2}}</span><br>
+                </label>
+                <label for="question{{question.QnID}}option3}}">
+                        <input class="with-gap" [(ngModel)]="answerSelected" type="radio" name="Qn{{question.QnID}}"
+                            value="3" id="question{{question.QnID}}option3" />
+                        <span>{{question.Option3}}</span><br>
+                    </label>
+                <label for="question{{question.QnID}}option4}}">
+                    <input class="with-gap" [(ngModel)]="answerSelected" type="radio" name="Qn{{question.QnID}}"
+                        value="4" id="question{{question.QnID}}option4" />
+                    <span>{{question.Option4 }}</span>
+                </label>
+
+
+
+            </div>
+
+        </div>
+    </div>
+</div>

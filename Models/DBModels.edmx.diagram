@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5a38fc7bda034f51b8dceb4b9423bf23" Name="Diagram1" ZoomLevel="66">
+        <EntityTypeShape EntityType="QuizDBModel.Participant" Width="1.5" PointX="11.375" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuizDBModel.Question" Width="1.5" PointX="11" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuizDBModel.Quiz" Width="1.5" PointX="7.625" PointY="1.5" />
+        <EntityTypeShape EntityType="QuizDBModel.AdminUser" Width="1.5" PointX="3.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuizDBModel.Topic" Width="1.5" PointX="3.5" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="QuizDBModel.AdminUserTopic" />
+        <AssociationConnector Association="QuizDBModel.AdminUserQuiz" />
+        <AssociationConnector Association="QuizDBModel.AdminUserQuestion" />
+        <AssociationConnector Association="QuizDBModel.QuizParticipant" />
+        <AssociationConnector Association="QuizDBModel.TopicQuiz" />
+        <EntityTypeShape EntityType="QuizDBModel.QuizAttempts" Width="1.5" PointX="7.125" PointY="5.25" />
+        <AssociationConnector Association="QuizDBModel.QuizAttemptsParticipant" />
+        <AssociationConnector Association="QuizDBModel.QuizAttemptsQuiz" />
+        <AssociationConnector Association="QuizDBModel.QuizQuestion" />
+        <EntityTypeShape EntityType="QuizDBModel.User" Width="1.5" PointX="13.375" PointY="2.875" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
